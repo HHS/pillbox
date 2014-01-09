@@ -81,6 +81,7 @@ def parseData(path, name):
 		for child in parent.iter('{urn:hl7-org:v3}representedOrganization'):
 			for grandChild in child.iterchildren('{urn:hl7-org:v3}name'):
 				sponsors['name'] = grandChild.text
+				grandChild.clear()
 
 	# -------------------------
 	# Build ProdMedicine and Ingredients arrays
@@ -97,20 +98,69 @@ def parseData(path, name):
 	info['SPLSIZE'] = []
 	info['SPLSCORE']  = []
 	info['SPLFLAVOR']  = []
+	info['SPL_INGREDIENTS'] = []
 
+	ingredient = {}
+	ingredient['active'] = []
+	ingredient['inactive'] = []
+	
+	ingredientTwo = {}
+	
 	for parent in getelements(path+name, "{urn:hl7-org:v3}manufacturedProduct"):
-		
 		count = count + 1
 		print count, 'manufactured products'
-		print '________________________________________________'
-		print
 		# First set of child elements in <manufacturedProduct> used for Ingredients
-		# for child in parent.iterchildren('{urn:hl7-org:v3}ingredient'):
-		# 	ingredient = {}
-		# 	for grandChild in child.iterchildren():
-		# 		ingredient['pm_prikey'] = {}
-		# 		ingredient['type'] = grandChild.get('classCode')
-		# 	ingredients.append(ingredient)
+		for child in parent.iterchildren('{urn:hl7-org:v3}ingredient'):
+			# Create temporary object for each ingredient
+			ingredientTemp = {}
+			if child.get('classCode') == 'ACTIB' or child.get('classCode') == 'ACTIM':
+				ingredientTemp['active_moiety_names'] = []
+				# Create object for active ingredient, for PROD_MEDICINES
+				active = {}
+				for grandChild in child.iterchildren('{urn:hl7-org:v3}ingredientSubstance'):
+					for c in grandChild.iterchildren():
+						ingredientTemp['ingredient_type'] = 'active'
+						if c.tag == '{urn:hl7-org:v3}name':
+							active['name'] = c.text
+							ingredientTemp['substance_name'] = c.text
+						if c.tag == '{urn:hl7-org:v3}code':
+							active['code'] = c.get('code')
+							ingredientTemp['substance_code'] = c.get('code')
+						# Send active moiety to ingredientTemp
+						if c.tag =='{urn:hl7-org:v3}activeMoiety':
+							print 'hey!'
+							name = c.find('.//{urn:hl7-org:v3}name')
+							ingredientTemp['active_moiety_names'].append(name.text)
+
+				# Send 'active' object to 'active' array
+				ingredient['active'].append(active)
+			
+			if child.get('classCode') == 'IACT':
+				# Create object for each inactive ingredient
+				inactive = {}
+				for grandChild in child.iterchildren('{urn:hl7-org:v3}ingredientSubstance'):
+					for c in grandChild.iterchildren():
+						ingredientTemp['ingredient_type'] = 'inactive'
+						if c.tag == '{urn:hl7-org:v3}name':
+							inactive['name'] = c.text
+							ingredientTemp['substance_name'] = c.text
+						if c.tag == '{urn:hl7-org:v3}code':
+							inactive['code'] = c.get('code')
+							ingredientTemp['substance_code'] = c.get('code')
+				# Send 'inactive' object to 'inactive' array
+				ingredient['inactive'].append(inactive)
+
+			for grandChild in child.iterchildren('{urn:hl7-org:v3}quantity'):
+				numerator = grandChild.find('./{urn:hl7-org:v3}numerator')
+				denominator = grandChild.find('./{urn:hl7-org:v3}denominator')
+
+				ingredientTemp['numerator_unit'] = numerator.get('unit')
+				ingredientTemp['numerator_value'] = numerator.get('value')
+				ingredientTemp['dominator_unit'] = denominator.get('unit')
+				ingredientTemp['dominator_value'] = denominator.get('value')
+
+			# Append temporary object to ingredients array
+			ingredients.append(ingredientTemp)
 
 		# To do: Abstract the three for loops below into a function
 		for child in parent.iterchildren('{urn:hl7-org:v3}code'):
@@ -125,7 +175,7 @@ def parseData(path, name):
 			if child.get('code') not in formCodes:
 				formCodes.append(child.get('code'))
 
-		# Append to info object
+		# Send to info object
 		info['product_code'] = codes
 		info['product_name'] = names
 		info['form_code'] = formCodes
@@ -161,10 +211,7 @@ def parseData(path, name):
 					each.clear() #clear memory
 				grandChild.clear() #clear memory	
 
-		# for x in host.iter('{urn:hl7-org:v3}representedOrganization'):
-		# 	for y in x.iterchildren('{urn:hl7-org:v3}name'):
-		# 		sponsors['name'] = y.text
-
+	info['SPL_INGREDIENTS'].append(ingredient)
 	prodMedicines.append(info)
 	print
 	print '--------------- products ----------------'
@@ -189,4 +236,5 @@ for x in latest:
 	newFiles.append(x)
 
 # Run the starting function, only on first file for now
-unZipFiles(newFiles[6])
+unZipFiles(newFiles[5])
+
