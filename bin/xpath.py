@@ -29,22 +29,6 @@ ingredients = []
 # Define Functions
 # ------------------
 
-def unZipFiles(file_name):
-	filePath = ('download/'+file_name).rstrip()
-	fileFolder = filePath.strip('.zip')
-	# Make folder for each pill to store unzipped contents, but commented out because 
-	# this breaks if file already exists
-	#os.makedirs(fileFolder)
-	fh = open(filePath, 'rb')
-	z = zipfile.ZipFile(fh)
-	for name in z.namelist():
-		outpath =  fileFolder + '/'
-		z.extract(name, outpath)
-		# Send only XML files to parseData() function
-		if ".xml" in name:
-			parseData(outpath, name)
-	fh.close()
-
 def parseData(path, name):
 	# Iterparse function that clears the memory each time it finishes running
 	def getelements(filename, tag):
@@ -222,19 +206,3 @@ def parseData(path, name):
 	print prodMedicines
 	print '-----'
 	print ingredients
-
-# ------------------
-# Run Functions
-# ------------------
-
-# Get list of latest files added
-latest = open('download/files_added.txt', 'r')
-
-# Create array of latest file names
-newFiles = []
-for x in latest:
-	newFiles.append(x)
-
-# Run the starting function, only on first file for now
-unZipFiles(newFiles[5])
-
