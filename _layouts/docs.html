@@ -1,0 +1,73 @@
+---
+layout: default
+---
+<div class='limiter clearfix'>
+  <div class='content-header'>
+    <h1 class='title'><a href='{{site.baseurl}}/'>/pillbox project</a></h1>
+    <h3 class='subtitle'>leverage the API and dive into the code</h3>
+  </div>
+  <div class='nav-wrapper'>
+  <a href='#' class='nav-toggle icon' title='Table of Contents'></a>
+  <div class='navigation' data-offset="200" data-scrollspy='scrollspy'>
+    <ul class='main-toc'>
+      <li class='active'><a href='#api' class='{% if page.url == '/index.html' %}active{% endif %}'>API</a></li>
+      <li><a href='#data'>Data</a></li>
+      <li><a href='#contribute'>Contribute</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class='page'>
+  <div class='content'>
+    {{ content }}
+  </div>
+</div>
+  <div class='content-footer'>
+    <h4></h4>
+    <ul>
+      <li>Built with <a href='http://jekyllrb.com/'>Jekyll</a></li>
+      <li>Created by <a href='http://developmentseed.org'>Development Seed</a></li>
+      <li>Icons under Creative Commons – Attribution (CC BY 3.0) Pill designed by Emmanuel Roy from the <a href='http://thenounproject.com'><b>Noun Project</b></a></li>
+    </ul>
+  </div>
+</div>
+<script src='site.js'></script>
+
+{% if page.url == '/index.html' %}
+  <script>
+    $(function (){
+        $(window).scroll(function () {
+          if($(window).scrollTop() + $(window).height()  === $(document).height() -50) {
+            // $('ul.main-toc li.active').removeClass('active')
+            $('ul.main-toc li.last').addClass('active');
+          }
+        });
+
+        function mobileTop() {
+          if (isTouchDevice()) {
+            $('.nav-wrapper').css('top', 0);
+          }
+        }
+        // Scoll to anchor and set item to active
+        $('ul.main-toc a').click(function (e){
+            e.preventDefault();
+            var url = this.href.split('#'),
+              targetFirst = $('#' + url[1]).offset().top;
+              target = targetFirst;
+              console.log( $('#' + url[1]).offset().top)
+            $('html, body').animate({
+              scrollTop:  target
+            }, 0);
+            if (($(this).length) && !$(this).is('.active')) {
+              $('.navigation a').removeClass('active');
+              $(this).addClass('active');
+            }
+            if (isTouchDevice()) {
+              var topHeight = $(window).scrollTop();
+              $('.nav-wrapper').css('top', topHeight);
+            }
+        });
+    });
+  </script>
+{% endif %}
+
