@@ -2,7 +2,7 @@ auto: true
 server: true
 exclude:
   - README.md
-baseurl:
+baseurl: /pillbox
 pygments: true
 permalink: /:docs.html
 markdown: rdiscount
