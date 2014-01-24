@@ -361,8 +361,8 @@ a {
   font-size: 20px;
   line-height: 30px;
 }
-.banner-nav a:hover {
-  background: #F9F9F9;
+.nav a:hover {
+  background: #F0F0F0;
 }
 /*----------------------------------
    Pillbox logo
@@ -650,9 +650,8 @@ table tr + tr td {
       }
     .header,
     .limiter,
-    .content-header,
     .content {
-      width: 100%;
+      width: auto;
       overflow: hidden;
       }
     .nav-wrapper {
