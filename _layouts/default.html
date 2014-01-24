@@ -7,9 +7,41 @@
 <meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
 <link rel='shortcut icon' href='{{site.baseurl}}/images/favicon.png' type='image/x-icon' />
 <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
 <link rel='stylesheet' href='site.css' type='text/css' media='screen' />
 </head>
 <body data-offset='80'>
-  {{content}}
+	<!-- Header -->
+	<div class="masthead col12 clearfix row2 keyline-bottom">
+		<div class="limiter clearfix">
+			<h1 class='col8 pad2y'>Pillbox</h1>
+			<div id="nav" class="col2 text-right pad2y contain clearfix noprint ">
+				<a class='pad2' href=''>Issues</a>
+				<a class='pad2'href=''>Fork</a>
+			</div>
+		</div>
+  	</div>
+  	<!-- Middle window section -->
+  	<div class='limiter clearfix'>
+  		<div class='col5 pad4y'>
+  			<h2>Lorem Ipsum</h2>
+  			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  			</p>
+  		</div>
+  		<div class='margin1 col6'>
+  				<li class='truncate contain clearfix pad2 keyline-bottom'><a href='#api' class=''>API</li>
+					<li class='truncate contain clearfix pad2 keyline-bottom'><a href='#data' class=''>Data Processing</li>
+					<li class='truncate contain clearfix pad2'><a href='#contribute' class=''>Contribute</li>
+  		</div>
+  	</div>
+    <!-- Bottom reader columns -->
+    {% for post in site.categories.docs %}
+    <div class='col12 pad4y fill-{{post.background-color}} keyline-top'>
+      <div class='contain clip limiter row12 clearfix'>
+  				 <h2 class='data' id='{{post.class}}'>{{post.title}}</h2> 
+          {{post.content}}
+  		</div>
+  	</div>
+  	{% endfor %}
 </body>
 </html>

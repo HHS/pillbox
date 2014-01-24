@@ -12,16 +12,16 @@ $(function (){
             var topHeight = $(this).scrollTop();
             nav.css('top', topHeight);
         } 
-        if ($(window).width() > 920) {
-                var y = $(this).scrollTop();
-                if (y >= top) {
-                    $('.content').css('margin-top','66px');
-                    nav.addClass('fixed');
-                } else {
-                    $('.content').css('margin-top','0px');
-                    nav.removeClass('fixed');
-                }
-        }
+        // if ($(window).width() > 920) {
+        //         var y = $(this).scrollTop();
+        //         if (y >= top) {
+        //             $('.content').css('margin-top','66px');
+        //             nav.addClass('fixed');
+        //         } else {
+        //             $('.content').css('margin-top','0px');
+        //             nav.removeClass('fixed');
+        //         }
+        // }
     });
 
     $(window).bind( 'load resize', function () {
