@@ -14,23 +14,21 @@
 	<!-- Header -->
 	<div class="masthead col12 clearfix row2 keyline-bottom">
 		<div class="limiter clearfix">
-			<h1 class='col2 pad2y'>
-        <div class='logo'>
+			<a href='{{site.baseurl}}/'><h1 class='col2 pad2y logo'>
         <span class='logo blue'>Pill</span><span class='logo orange'>box</span>
-        </div>
       </h1>
-			<div class="nav col4 nav-header" class="col2 text-right pad2y contain clearfix noprint ">
-        <a class='pad2'href=''>Open Issues</a>
-        <a class='pad2 keyline-right'href=''>GitHub</a>
-        <a class='pad2 keyline-right' href=''>About</a>
+      </a>
+			<div class="nav col8 nav-header" class="col2 text-right pad2y contain clearfix noprint ">
+        <a class='pad2 keyline-right' href='https://github.com/developmentseed/pillbox-data-api/blob/master/README.md'>About</a>
+        <a class='pad2'href='https://github.com/developmentseed/pillbox-data-api/issues'>Open Issues</a>
 			</div>
 		</div>
   	</div>
   	<!-- Middle window section -->
   	<div class='limiter pad2y clearfix'>
   		<div class='col5 pad4y'>
-  			<h2>Lorem Ipsum</h2>
-  			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  			<h2>Rapid Identification, Reliable Information</h2>
+  			<p>Pillbox enables rapid identification of unknown solid-dosage medications. This data is now available in a static API, and hosted in an open source <a href='https://github.com/developmentseed/pillbox-data-api'>GitHub respository</a>, where you can contribute to the project. 
   			</p>
   		</div>
   		<div class='margin1 col6 pad2y nav'>
@@ -52,8 +50,49 @@
     {% for post in site.categories.docs %}
     <div class='col12 pad4y fill-{{post.background-color}} keyline-top'>
       <div class='contain clip limiter row12 clearfix'>
-        <h2><a class='data' href='#{{post.class}}' id='{{post.class}}'>{{post.title}}</a></h2>
+        <div class='col6'>
+          <h2><a class='data' href='#{{post.class}}' id='{{post.class}}'> {{post.title}} </a> </h2>
           {{post.content}}
+        </div>
+        {% if post.columns == 2 %}
+          <div class='col2 pad2x'>
+            <h3><a href='{{post.link1}}'> {{post.link1title}} </a></h3>
+            <p>{{post.link1info}}</p>
+          </div>
+          <div class='col2 pad2x'>
+            <h3><a href='{{post.link2}}'> {{post.link2title}} </a></h3>
+              <p>{{post.link2info}}</p>
+
+            <h3><a href='{{post.link3}}'> {{post.link3title}} </a></h3>
+              <p>{{post.link3info}}</p>
+
+            <h3><a href='{{post.link4}}'> {{post.link4title}} </a></h3>
+              <p>{{post.link4info}}</p>
+
+            <h3><a href='{{post.link5}}'> {{post.link5title}} </a></h3>
+              <p>{{post.link5info}}</p>
+
+            <h3><a href='{{post.link6}}'> {{post.link6title}} </a></h3>
+              <p>{{post.link6info}}</p>
+
+            <h3><a href='{{post.link7}}'> {{post.link7title}} </a></h3>
+              <p>{{post.link7info}}</p>
+
+             <h3><a href='{{post.link8}}'> {{post.link8title}} </a></h3>
+              <p>{{post.link8info}}</p>
+          </div>
+        {% elsif post.columns == 1 %}
+           <div class='col4 pad4x'>
+            <h3><a href='{{post.link1}}'> {{post.link1title}} </a></h3>
+              <p>{{post.link1info}}</p>
+
+            <h3><a href='{{post.link2}}'> {{post.link2title}} </a></h3>
+              <p>{{post.link2info}}</p>
+
+            <h3><a href='{{post.link3}}'> {{post.link3title}} </a></h3>
+              <p>{{post.link3info}}</p>
+        {% endif %}
+        </div>
   		</div>
   	</div>
   	{% endfor %}
