@@ -51,7 +51,7 @@
     {% for post in site.categories.docs %}
     <div class='col12 pad4y fill-{{post.background-color}} keyline-top'>
       <div class='contain clip limiter row12 clearfix'>
-  				 <h2 class='data' id='{{post.class}}'>{{post.title}}</h2> 
+        <h2><a class='data' href='#{{post.class}}' id='{{post.class}}'>{{post.title}}</a></h2>
           {{post.content}}
   		</div>
   	</div>
