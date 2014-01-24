@@ -158,11 +158,6 @@ overflow: hidden;
 .inline {
   display: inline-block;
 }
-/* Small Screen Layout
-------------------------------------------------------- */
-@media only screen and (max-width:900px) {
-  .limiter { width: 100%; padding: 0 20px;}
-}
 
 /* Tablet Layout
 ------------------------------------------------------- */
@@ -360,6 +355,13 @@ a {
 .prose {
   font-size: 20px;
   line-height: 30px;
+}
+.nav-header {
+  float: right;
+  margin-top: 5px;
+}
+.nav-header a {
+  float: right;
 }
 .nav a:hover {
   background: #F0F0F0;
@@ -648,8 +650,8 @@ table tr + tr td {
     body {
       margin: 0 10px;
       }
+    .limiter { width: auto; padding: 0 20px;}
     .header,
-    .limiter,
     .content {
       width: auto;
       overflow: hidden;
