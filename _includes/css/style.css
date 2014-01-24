@@ -364,6 +364,26 @@ a {
 .banner-nav a:hover {
   background: #F9F9F9;
 }
+/*----------------------------------
+   Pillbox logo
+-----------------------------------*/
+.logo .blue {
+  color: #fff;
+  background: #CDCDCD;
+  padding: 1px 1px 4px 8px;
+  border: 1px solid #bbb;
+  border-radius: 20px 0px 0px 20px;
+  -moz-border-radius: 20px 0px 0px 20px;
+  -webkit-border-radius: 20px 0px 0px 20px;
+}
+.logo .orange {
+  color: orange;
+  padding: 1px 7px 4px 3px;
+  border: 1px solid #bbb;
+  border-radius: 0px 20px 20px 0px;
+  -moz-border-radius: 0px 20px 20px 0px;
+  -webkit-border-radius: 0px 20px 20px 0px;
+}
 /*-----------------------------------
   Inputs
 -------------------------------------*/
