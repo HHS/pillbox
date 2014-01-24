@@ -14,7 +14,11 @@
 	<!-- Header -->
 	<div class="masthead col12 clearfix row2 keyline-bottom">
 		<div class="limiter clearfix">
-			<h1 class='col8 pad2y'>Pillbox</h1>
+			<h1 class='col8 pad2y'>
+        <div class='logo'>
+        <span class='logo blue'>Pill</span><span class='logo orange'>box</span>
+        </div>
+      </h1>
 			<div id="nav" class="col2 text-right pad2y contain clearfix noprint ">
 				<a class='pad2' href=''>Issues</a>
 				<a class='pad2'href=''>Fork</a>
@@ -22,16 +26,25 @@
 		</div>
   	</div>
   	<!-- Middle window section -->
-  	<div class='limiter clearfix'>
+  	<div class='limiter pad2y clearfix'>
   		<div class='col5 pad4y'>
   			<h2>Lorem Ipsum</h2>
   			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
   			</p>
   		</div>
-  		<div class='margin1 col6'>
-  				<li class='truncate contain clearfix pad2 keyline-bottom'><a href='#api' class=''>API</li>
-					<li class='truncate contain clearfix pad2 keyline-bottom'><a href='#data' class=''>Data Processing</li>
-					<li class='truncate contain clearfix pad2'><a href='#contribute' class=''>Contribute</li>
+  		<div class='margin1 col6 banner-nav'>
+  				<a href='#api' class='truncate contain clearfix pad2 keyline-bottom'>
+            <span class="icon" style="background-image: url(../{{site.baseurl}}/images/icons/api.png);"></span>
+            <span class='prose'>API</span>
+          </a>
+					<a href='#data' class='truncate contain clearfix pad2 keyline-bottom'>
+            <span class="icon" style="background-image: url(../{{site.baseurl}}/images/icons/data.png);"></span>
+            <span class='prose'>Data Processing</span>
+          </a>
+          <a href='#contribute' class='truncate contain clearfix pad2'>
+            <span class="icon" style="background-image: url(../{{site.baseurl}}/images/icons/contribute.png);"></span>
+            <span class='prose'>Contribute Code</span>
+          </a>
   		</div>
   	</div>
     <!-- Bottom reader columns -->
