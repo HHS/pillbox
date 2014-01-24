@@ -14,4 +14,4 @@ link2info: Python scripts download the DailyMed XML files, and process them into
 
 Python is used to download the XML files from DailyMed, process the appropriate information from all files into the JSON API, which enables sorting by characteristic. 
 
-This script can be run on your local machine by installing [Python](http://www.python.org/). Follow [this tutorial](https://github.com/developmentseed/pillbox-data-api/wiki/_pages) to get the process running on your own machine, or visit the links to the right to walk through the current data process. 
+This script can be run on your local machine by installing [Python](http://www.python.org/). Follow [this tutorial](https://github.com/developmentseed/pillbox-data-api/wiki/_pages) to get the process running on your own machine, or visit the links to the right to walk through the current data process.
