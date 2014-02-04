@@ -370,6 +370,45 @@ a {
 /*----------------------------------
    Pillbox logo
 -----------------------------------*/
+.logo .nlm {
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 50px;
+  height: 51px;
+  text-indent: -999em;
+  float: left;
+  margin-right: 5px;
+}
+.logo .stack {
+  width: 25px;
+  height: 50px;
+  float: left;
+  margin-right: 10px;
+}
+.nih {
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-indent: -999em;
+  float: left;
+  margin-right: 5px;
+  opacity: 0.7;
+}
+.hhs {
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  text-indent: -999em;
+  float: left;
+  margin-right: 5px;
+  opacity: 0.7;
+}
+.logo .text {
+  padding-left: 5px;
+  color: #404040;
+}
 .logo .blue {
   color: #fff;
   background: #CDCDCD;
@@ -620,6 +659,16 @@ table tr + tr td {
     color: #999;
     font-weight: bold;
     }
+   .content-footer div h6 {
+    color: #999;
+   }
+   .content-footer div a {
+    color: #404040;
+    text-decoration: none;
+    line-height: inherit;
+    font-weight: inherit;
+    }
+   }
 .nav-wrapper {
   opacity: 1;
   /*margin-top: 10px;*/
