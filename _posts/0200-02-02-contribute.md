@@ -1,10 +1,9 @@
 ---
-title: "Contribute"
+title: "Contribute Code Back"
 layout: docs
 category: docs
 class: contribute
 columns: 1
-background-color: grey
 link1: https://github.com/developmentseed/pillbox-data-api/issues
 link1title: 'Open Issues'
 link1info: 'Use the open issues queue to file bugs, or to help tackle existing issues.'

@@ -2,6 +2,11 @@ auto: true
 server: true
 exclude:
   - README.md
+  - api
+  - tmp
+  - bin
+  - data_store
+  - pillbox-original-process
 baseurl: /pillbox
 pygments: true
 permalink: /:docs.html
