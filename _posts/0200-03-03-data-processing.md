@@ -5,10 +5,10 @@ category: docs
 class: data
 columns: 1
 background-color: grey
-link1: http://dailymed.nlm.nih.gov/dailymed/about.cfm?CFID=183228258&CFTOKEN=8603a4114605f21e-15BB5AE8-E978-A377-63D39868B9AC4364&jsessionid=8430e2cae8a7eec20716624e742245d703b7
+link1: http://dailymed.nlm.nih.gov/dailymed/about.cfm
 link1title: 'Download the Source Data'
 link1info: 'Source data is available from DailyMed in XML format, which provides data on prescription drugs. DailyMed is a service of the National Library of Medicine (NLM)'
-link2: https://github.com/developmentseed/pillbox/tree/master/bin
+link2: https://github.com/HHS/pillbox-data-process/tree/master/scripts#pillbox-data-process
 link2title: Data Processing with Python
 link2info: Python scripts download the DailyMed XML files, and process them into the JSON API and CSV.
 ---
