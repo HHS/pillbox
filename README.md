@@ -1,3 +1,9 @@
+> [!WARNING]
+> **This repository has been archived and is no longer maintained.**
+> The code is provided for historical reference and may contain unpatched or unknown vulnerabilities.
+> It should not be used in production systems.
+> For more information, please contact <hhs_github_service_desk@hhs.gov>.
+
 ## Pillbox for Developers
 
 Homepage and public access point for learning and contributing to the code and documentation on the [Pillbox Data Process](https://github.com/HHS/pillbox-data-process). The site contains links and descriptions of how to understand, contribute, and access code and data from Pillbox.
